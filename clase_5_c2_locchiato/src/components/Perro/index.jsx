@@ -7,10 +7,10 @@ class Perro extends Component {
       <div>
         <h2>Nombre: {this.props.nombre}</h2>
         <ul>
-          <li>Edad: {this.props.edad}</li>
-          <li>Sexo: {this.props.sexo}</li>
-          <li>Raza: {this.props.raza}</li>
-          <li>Tamaño: {this.props.tamaño} </li>
+          {this.props.render("Edad", this.props.edad)}
+          {this.props.render("Sexo", this.props.sexo)}
+          {this.props.render("Raza", this.props.raza)}
+          {this.props.render("Tamaño", this.props.tamaño)}
         </ul>
       </div>
     );
