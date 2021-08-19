@@ -1,34 +1,32 @@
 import React from "react";
+import animals from "../../animals";
+import Perro from "../Perro";
+import Item from "../Item";
 
-const animals = [
-  {
-    age: 24,
-    gender: "Macho de las praderas",
-    raza: "Pastor peluche",
-    size: "Grandote",
-  },
-  {
-    age: 15,
-    gender: "Hembra hermosa",
-    raza: "Pastor peluche",
-    size: "Grandote",
-  },
-  {
-    age: 3,
-    gender: "Machote",
-    raza: "Pastor peluche",
-    size: "Grandote",
-  },
-  {
-    age: 34,
-    gender: "Perrote",
-    raza: "Pastor peluche",
-    size: "Grandote",
-  },
-];
+const names = ["Pacha", "Firulais", "Maya", "Pipo"];
+
+function List() {
+  return (
+    names.map((name, i) =>
+      <Perro
+        nombre={name}
+        edad={animals[i].age}
+        sexo={animals[i].gender}
+        raza={animals[i].raza}
+        tamaño={animals[i].size}
+        render={(prefix, type) => (
+          <Item prefix={prefix} type={type} />
+        )}
+      />
+    )
+  );
+}
+
+
+export default List;
+
 
 /*
-
         <List >
           <h4>Nombre: {name}</h4>
           <ul>
@@ -39,11 +37,9 @@ const animals = [
             <Item prefix="Color" type="red" />
           </ul>
         </List>
- */
+        
 
-function List(props, index) {
-  return (
-    <>
+
       <h4>Nombre: {props.name}</h4>
       <ul>
         {props.render("Edad", animals[props.index].age)}
@@ -51,10 +47,7 @@ function List(props, index) {
         {props.render("Raza", animals[props.index].raza)}
         {props.render("Tamaño", animals[props.index].size)}
       </ul>
-    </>
-  );
-}
-
+       */
 
 
 // function List(props) {
@@ -72,4 +65,3 @@ function List(props, index) {
 //   );
 // }
 
-export default List;
